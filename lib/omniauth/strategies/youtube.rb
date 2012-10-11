@@ -22,7 +22,7 @@ module OmniAuth
       info do
         {
           'uid' => user['id']['$t'],
-          'nickname' => user['author'].first['name']['$t'],
+          'nickname' => user['yt$username']['$t'],
           'email'      => verified_email,
           'first_name' => user['yt$firstName'] && user['yt$firstName']['$t'],
           'last_name' => user['yt$lastName'] && user['yt$lastName']['$t'],
