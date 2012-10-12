@@ -30,7 +30,9 @@ module OmniAuth
           'description' => user['yt$description'] && user['yt$description']['$t'],
           'location' => user['yt$location'] && user['yt$location']['$t'],
           'channel_title' => user['title']['$t'],
-          'subscribers_count' => user['yt$statistics']['subscriberCount']
+          'subscribers_count' => user['yt$statistics']['subscriberCount'],
+          'published' => user['published']['$t'],
+          'total_views' => user['yt$statistics']['totalUploadViews']
         }
       end
 
