@@ -32,7 +32,8 @@ module OmniAuth
           'channel_title' => user['title']['$t'],
           'subscribers_count' => user['yt$statistics']['subscriberCount'],
           'published' => user['published']['$t'],
-          'total_views' => user['yt$statistics']['totalUploadViews']
+          'total_views' => user['yt$statistics']['totalUploadViews'],
+          'total_channel_views' => user['yt$statistics']['viewCount']
         }
       end
 
