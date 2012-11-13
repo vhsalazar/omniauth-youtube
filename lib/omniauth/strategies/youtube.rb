@@ -48,17 +48,19 @@ module OmniAuth
 
       def user_hash
         @user_hash ||= MultiJson.decode(@access_token.get("http://gdata.youtube.com/feeds/api/users/default?alt=json").body)
+        puts @user_hash
       end
 
       def user_info
-        @raw_info ||= @access_token.get('https://www.googleapis.com/oauth2/v2/userinfo').parsed
+        @raw_info ||= @access_token.get('https://www.googleapis.com/oauth2/v1/userinfo').parsed
+        puts @raw_info
       end
 
       private
 
       def birth_day
         age = user['yt$age']['$t']
-        birthday = user['birthday']
+        birthday = user_info['birthday']
         if age.present? && birthday.present?
           birthday.sub('0000', age.years.ago.year.to_s)
         end
