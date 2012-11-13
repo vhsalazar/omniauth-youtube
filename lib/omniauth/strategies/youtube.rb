@@ -33,7 +33,8 @@ module OmniAuth
           'subscribers_count' => user['yt$statistics']['subscriberCount'],
           'published' => user['published']['$t'],
           'total_views' => user['yt$statistics']['totalUploadViews'],
-          'total_channel_views' => user['yt$statistics']['viewCount']
+          'total_channel_views' => user['yt$statistics']['viewCount'],
+          'birth_date' => birth_day
         }
       end
 
@@ -54,6 +55,14 @@ module OmniAuth
       end
 
       private
+
+      def birth_day
+        age = user['yt$age'] && user['yt$age']['$t']
+        birthday = user['birthday']
+        if age.present? && birthday.present?
+          birthday.sub('0000', age.years.ago.year.to_s)
+        end
+      end
 
       def verified_email
         user_info['verified_email'] ? user_info['email'] : nil
