@@ -57,7 +57,7 @@ module OmniAuth
       private
 
       def birth_day
-        age = user['yt$age'] && user['yt$age']['$t']
+        age = user['yt$age']['$t']
         birthday = user['birthday']
         if age.present? && birthday.present?
           birthday.sub('0000', age.years.ago.year.to_s)
