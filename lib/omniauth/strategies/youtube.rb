@@ -14,7 +14,7 @@ module OmniAuth
       }
 
       option :authorize_params, {
-        :scope => 'http://gdata.youtube.com https://www.googleapis.com/auth/userinfo.email'
+        :scope => 'http://gdata.youtube.com https://www.googleapis.com/auth/userinfo https://www.googleapis.com/auth/userinfo.email '
       }
 
       uid { user['id']['$t'] }
@@ -51,7 +51,7 @@ module OmniAuth
       end
 
       def user_info
-        @raw_info ||= @access_token.get('https://www.googleapis.com/oauth2/v1/userinfo').parsed
+        @raw_info ||= @access_token.get('https://www.googleapis.com/oauth2/v2/userinfo').parsed
       end
 
       private
