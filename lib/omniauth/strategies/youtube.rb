@@ -48,12 +48,10 @@ module OmniAuth
 
       def user_hash
         @user_hash ||= MultiJson.decode(@access_token.get("http://gdata.youtube.com/feeds/api/users/default?alt=json").body)
-        puts @user_hash
       end
 
       def user_info
         @raw_info ||= @access_token.get('https://www.googleapis.com/oauth2/v1/userinfo').parsed
-        puts @raw_info
       end
 
       private
