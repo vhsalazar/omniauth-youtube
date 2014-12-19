@@ -14,7 +14,7 @@ module OmniAuth
       }
 
       option :authorize_params, {
-        :scope => 'http://gdata.youtube.com https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email '
+        :scope => 'http://gdata.youtube.com https://www.googleapis.com/auth/userinfo.profile https://www.googleapis.com/auth/userinfo.email https://www.googleapis.com/auth/youtube.force-ssl'
       }
       def authorize_params
         session['omniauth.dashboard.params'] = request.params
